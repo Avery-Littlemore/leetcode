@@ -58,18 +58,13 @@ class Solution(object):
             'M': 1000,
         }
         result = 0
-        index = 0
-        skip_next = False
-        for char in s:
-            if skip_next:
-                skip_next = False
-            elif index < len(s) - 1 and hash_table[char] < hash_table[s[index + 1]]:
-                skip_next = True
-                result += hash_table[s[index + 1]] - hash_table[char]
+        for i in range(len(s) - 1):
+            if hash_table[s[i]] < hash_table[s[i + 1]]:
+                result -= hash_table[s[i]]
             else:
-                result += hash_table[char]
-            index += 1
+                result += hash_table[s[i]]
 
+        result += hash_table[s[-1]]
         return result
 
         
