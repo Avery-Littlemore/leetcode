@@ -20,7 +20,8 @@ P:
 - return the modified linked list
 
 - edge cases:
-    - what if 
+    - what if an empty list is passed
+    - what if a single-item list is passed
 
 E:
 Input: head = [1,1,2]
