@@ -73,6 +73,7 @@ class Solution(object):
         :type intervals: List[List[int]]
         :rtype: List[List[int]]
         """
+        
         results = []
         intervals = sorted(intervals)
         for i in range(len(intervals)):
