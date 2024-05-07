@@ -61,7 +61,6 @@ class Solution(object):
         next_product = nums[-1]
         for i in range(len(nums) - 2, -1, -1):
             [next_product, right_products[i]] = [nums[i] * next_product, next_product]
-            i -= 1
 
         prev_product = 1
         for i in range(len(nums)):
