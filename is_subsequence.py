@@ -26,6 +26,4 @@ class Solution(object):
                 s_counter += 1
             t_counter += 1
 
-        if s_counter == len(s):
-            return True
-        return False
+        return s_counter == len(s)
