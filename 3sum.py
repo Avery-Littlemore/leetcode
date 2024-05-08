@@ -38,6 +38,7 @@ class Solution(object):
         for i in range(len(nums)):
             if i > 0 and nums[i] == nums[i - 1]:
                 continue
+            
             target = -nums[i]
             j = i + 1
             k = len(nums) - 1
