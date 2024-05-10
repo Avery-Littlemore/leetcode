@@ -10,7 +10,8 @@
 # Example 1:
 # Input: height = [1,8,6,2,5,4,8,3,7]
 # Output: 49
-# Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the container can contain is 49.
+# Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the 
+# container can contain is 49.
 # i.e., 7 (num of continuous i) x 7 (highest "bookend" elements)
 
 # Example 2:
@@ -29,7 +30,31 @@ volume = (anchor - runner) * min(height[anchor], height[runner])
 
 """
 
+class Solution(object):
+    def calculateArea(self, height, left, right):
+        return (right - left) * min(height[left], height[right])
 
+    def maxArea(self, height):
+        """
+        :type height: List[int]
+        :rtype: int
+        """
+        left = 0
+        right = len(height) - 1
+
+        max_area = self.calculateArea(height, left, right)
+
+        while left < right:
+            if height[left] > height[right]:
+                right -= 1
+            else:
+                left += 1
+            
+            current_area = self.calculateArea(height, left, right)
+            if current_area > max_area:
+                max_area = current_area
+
+        return max_area
 
 
 
