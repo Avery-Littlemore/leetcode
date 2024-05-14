@@ -45,3 +45,18 @@ class Solution(object):
             return False
 
         return helper(0)
+    
+# Greedy Algo
+class Solution(object):
+    def canJump(self, nums):
+        farthest = 0
+
+        for i in range(len(nums)):
+            if i > farthest:
+                return False
+            # update the farthest
+            farthest = max(farthest, nums[i] + i)
+            if farthest >= len(nums) - 1:
+                return True
+            
+        return False
