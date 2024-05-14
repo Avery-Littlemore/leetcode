@@ -20,6 +20,7 @@
 
 
 # dp = {1: 1, 2: 2}
+# better solution! the iterative below with variables is 
 class Solution(object):
     def climbStairs(self, n):
         """

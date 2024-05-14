@@ -39,3 +39,6 @@ class Solution(object):
             return dp[row, index]
         
         return helper(0, 0)
+    
+
+# Try to solve it in O(1) space complexity

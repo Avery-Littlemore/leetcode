@@ -33,10 +33,30 @@ class Solution(object):
 
         return memo[(row, col)]
 
+
     def minPathSum(self, grid):
         """[]
         :type grid: List[List[int]]
         :rtype: int
         """
         
-        return self.helper(grid, len(grid) - 1, len(grid[0]) - 1, {})
+        return self.helper(grid, len(grid) - 1, len(grid[0]) - 1)
+    
+
+# Try to solve it in O(1) space complexity...
+# class Solution(object):
+#     def minPathSum(self, grid):
+#         def helper(row, col):
+#             if row < 0 or col < 0:
+#                 return float('inf')
+            
+#             if row == 0 and col == 0:
+#                 return grid[row][col]
+
+#             top = helper(row - 1, col)
+#             left = helper(row, col - 1)
+#             return min(left, top) + grid[row][col]
+
+#             # return grid[row][col]
+        
+#         return helper(len(grid) - 1, len(grid[0]) - 1)
