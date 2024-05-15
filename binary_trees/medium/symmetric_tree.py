@@ -28,27 +28,3 @@ class Solution(object):
         
     def isSymmetric(self, root):
         return self.isMirror(root.left, root.right)
-    
-
-    # def isSymmetric(self, root: Optional[TreeNode]) -> bool:
-    #     def symmetric_helper(left, right):
-    #         # if both are None, they are symmetric by definition
-    #         if left is None and right is None:
-    #             return True
-
-    #         # if one is None and the other isn't, it's not symmetric
-    #         if left is None or right is None:
-    #             return False
-
-    #         # if the right node's value is not equal to the left node's value, it's not symmetric
-    #         if right.val != left.val:
-    #             return False
-
-    #         return symmetric_helper(left.left, right.right) and symmetric_helper(left.right, right.left)
-        
-    #     if root is None:
-    #         return True
-
-    #     return symmetric_helper(root.left, root.right)
-
-    

@@ -41,3 +41,20 @@ class Solution(object):
             return 1 + max(left, right)
             
         return helper(root) != -1
+
+# Alternate solution
+class Solution(object):
+    def isBalanced(self, root):
+        if root is None:
+            return True
+        def depth(node):
+            if node is None:
+                return 0
+
+            return max(depth(node.left), depth(node.right)) + 1
+
+        left_depth = depth(root.left)
+        right_depth = depth(root.right)
+
+        if abs(left_depth - right_depth) < 2 and self.isBalanced(root.left) and self.isBalanced(root.right):
+            return True

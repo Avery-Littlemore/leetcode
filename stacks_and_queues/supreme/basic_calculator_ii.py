@@ -33,57 +33,6 @@
 
 """
 
-# class Solution(object):
-#     def calculate(self, s):
-#         """
-#         :type s: str
-#         :rtype: int
-#         """
-        
-#         result = 0
-
-#         current_num = ''
-#         multiplier = 1
-#         divisor = 1
-        
-#         for i in range(len(s) - 1, -1, -1):
-#             if s[i] == ' ':
-#                 continue
-#             elif s[i] == '+':
-#                 if multiplier != 1:
-#                     current_num = int(current_num) * int(multiplier)
-#                 if divisor != 1:
-#                     current_num = int(current_num) / int(divisor)
-#                 result += int(current_num)
-#                 multiplier = 1
-#                 divisor = 1
-#                 current_num = ''
-#             elif s[i] == '-':
-#                 if multiplier != 1:
-#                     current_num = int(current_num) * int(multiplier)
-#                 if divisor != 1:
-#                     current_num = int(current_num) / int(divisor)
-#                 result -= int(current_num)
-#                 multiplier = 1
-#                 divisor = 1
-#                 current_num = ''
-#             elif s[i] == '*':
-#                 multiplier *= int(current_num)
-#                 current_num = ''
-#             elif s[i] == '/':
-#                 divisor *= int(current_num)
-#                 current_num = ''
-#             else:
-#                 current_num = s[i] + current_num
-
-#         if multiplier != 1:
-#             current_num = int(current_num) * int(multiplier)
-#         if divisor != 1:
-#             current_num = int(current_num) / int(divisor)
-#         return result + int(current_num)
-    
-
-
 class Solution(object):
     def calculate(self, s):
         """
@@ -110,6 +59,9 @@ class Solution(object):
                         stack.append(temp // current_num + 1)
                     else:    
                         stack.append(temp // current_num)
+                    
+                    # in one line, to replace lines 58-61 -> ONLY WORKS IN PYTHON3
+                    # stack.append(math.trunc(temp/current_num))
 
                 current_num = 0
                 operation = s[i]
