@@ -26,18 +26,15 @@ class TreeNode(object):
         self.right = right
 class Solution(object):
     def isSameTree(self, p, q):
-        """
-        :type p: TreeNode
-        :type q: TreeNode
-        :rtype: bool
-        """
-        def helper(p_node, q_node):
-            if p_node == None and q_node == None:
-                return True
-            elif p_node == None or q_node == None or p_node.val != q_node.val:
-                return False
+        # def helper(p_node, q_node):
+        #     if p_node == None or q_node == None:
+        #         return p_node == q_node
             
-            return helper(p_node.left, q_node.left) and helper(p_node.right, q_node.right)
-
+        #     return p_node.val == q_node.val and helper(p_node.left, q_node.left) and helper(p_node.right, q_node.right)
         
-        return helper(p, q)
+        # return helper(p, q)
+
+        if p == None or q == None:
+            return p == q
+
+        return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)

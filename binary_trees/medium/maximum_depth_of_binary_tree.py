@@ -26,13 +26,18 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
-        def helper(node, curr_depth):
-            if node == None:
-                return curr_depth
+        # def helper(node, curr_depth):
+        #     if node == None:
+        #         return curr_depth
 
-            left = helper(node.left, curr_depth + 1)
-            right = helper(node.right, curr_depth + 1)
+        #     left = helper(node.left, curr_depth + 1)
+        #     right = helper(node.right, curr_depth + 1)
 
-            return max(left, right)
+        #     return max(left, right)
         
-        return helper(root, 0)
+        # return helper(root, 0)
+
+        if root == None:
+            return 0
+        
+        return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))

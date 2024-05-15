@@ -47,46 +47,46 @@
 # path consists of English letters, digits, period '.', slash '/' or '_'.
 # path is a valid absolute Unix path.
 
-class Solution(object):
-    def simplifyPath(self, path):
-        output = []
+# class Solution(object):
+#     def simplifyPath(self, path):
+#         output = []
 
-        idx = 1
-        current = ''
-        while idx < len(path):
-            if path[idx] != '/' and path[idx] != '.':
-                current += path[idx]
-            elif path[idx] == '/':
-                if len(current) > 0:
-                    output.append(current)
+#         idx = 1
+#         current = ''
+#         while idx < len(path):
+#             if path[idx] != '/' and path[idx] != '.':
+#                 current += path[idx]
+#             elif path[idx] == '/':
+#                 if len(current) > 0:
+#                     output.append(current)
 
-                current = ''
-            elif path[idx] == '.':
-                if current == '':
-                    dots = 1
-                    while idx + dots < len(path) and path[idx + dots] == '.':
-                        dots += 1
+#                 current = ''
+#             elif path[idx] == '.':
+#                 if current == '':
+#                     dots = 1
+#                     while idx + dots < len(path) and path[idx + dots] == '.':
+#                         dots += 1
 
-                    if idx + dots == len(path) or path[idx + dots] == '/':
-                        if dots > 2:
-                            output.append('.' * dots)
+#                     if idx + dots == len(path) or path[idx + dots] == '/':
+#                         if dots > 2:
+#                             output.append('.' * dots)
 
-                        elif dots == 2:
-                            if len(output) > 0: output.pop(-1)
-                    else:
-                        current += '.' * dots
+#                         elif dots == 2:
+#                             if len(output) > 0: output.pop(-1)
+#                     else:
+#                         current += '.' * dots
                     
-                    idx += dots - 1
+#                     idx += dots - 1
 
-                else:
-                    current += path[idx]
+#                 else:
+#                     current += path[idx]
 
-            idx += 1
+#             idx += 1
         
-        if len(current) > 0:
-            output.append(current)
+#         if len(current) > 0:
+#             output.append(current)
 
-        return '/' + '/'.join(output)
+#         return '/' + '/'.join(output)
     
 # Using a stack
 class Solution(object):

@@ -25,26 +25,26 @@
 
 """
 
-class Solution(object):
-    def canJump(self, nums):
-        cache = {}
-        def helper(idx):
-            if idx >= len(nums) - 1:
-                return True
-            if nums[idx] == 0:
-                return False
+# class Solution(object):
+#     def canJump(self, nums):
+#         cache = {}
+#         def helper(idx):
+#             if idx >= len(nums) - 1:
+#                 return True
+#             if nums[idx] == 0:
+#                 return False
             
-            for jump in range(nums[idx], 0, -1):
-                if idx + jump in cache:
-                    return cache[idx + jump]
-                else:
-                    cache[idx + jump] = helper(idx + jump)
-                    if cache[idx + jump]:
-                        return True
+#             for jump in range(nums[idx], 0, -1):
+#                 if idx + jump in cache:
+#                     return cache[idx + jump]
+#                 else:
+#                     cache[idx + jump] = helper(idx + jump)
+#                     if cache[idx + jump]:
+#                         return True
 
-            return False
+#             return False
 
-        return helper(0)
+#         return helper(0)
     
 # Greedy Algo
 class Solution(object):
