@@ -18,9 +18,7 @@
 class Solution:
     def subsets(self, nums):
         def backtrack(start_idx, candidates, candidate, results):
-            if candidate not in results:
-                results.append(candidate.copy())
-                # return
+            results.append(candidate.copy())
         
             for idx in range(start_idx, len(candidates)): # if you need the index use `enumerate`
                 # if True:  # replace True with the dead-end condition
@@ -29,7 +27,7 @@ class Solution:
                 candidate.append(candidates[idx])  # take
                 backtrack(idx + 1, candidates, candidate, results)  # explore
                 candidate.pop()  # clean up
-        results = [[]]
+        results = []
         candidate = []
         backtrack(0, nums, candidate, results)
         return results
