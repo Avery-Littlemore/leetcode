@@ -35,3 +35,26 @@ class Solution(object):
         dfs(root, 0)
 
         return result[0]
+    
+    # def findBottomLeftValue(self, root):
+    #     queue = deque()
+    #     queue.append([root])
+
+    #     while queue:
+    #         new_level = []
+    #         current_level = queue.popleft()
+    #         is_last_level = True
+            
+    #         for node in current_level:
+    #             if node.left or node.right:
+    #                 is_last_level = False
+
+    #                 if node.left:
+    #                     new_level.append(node.left)
+    #                 if node.right:
+    #                     new_level.append(node.right)
+
+    #         if is_last_level:
+    #             return current_level[0].val
+
+    #         queue.append(new_level)

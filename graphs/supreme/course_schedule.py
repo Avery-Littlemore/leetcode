@@ -35,39 +35,33 @@ class Solution(object):
         :type prerequisites: List[List[int]]
         :rtype: bool
         """
-        prereqs_hash = {}
-        def course_relationships():
-            for post, pre in prerequisites:
-                prereqs_hash.setdefault(pre, []).append(post)
+        prereq_hash = {}
+        for i in range(numCourses):
+            prereq_hash[i] = []
 
-        course_relationships()
-        outer_visited = set()
+        for course, pre in prerequisites:
+            prereq_hash.setdefault(course, []).append(pre)
 
-        def dfs(key, inner_visited):
-            if key in inner_visited:
-                print(key)
-                print(outer_visited)
-                print(inner_visited)
+        visited = set()
+        def dfs(course):
+            if course in visited:
+                return False
+            
+            if prereq_hash[course] == []:
                 return True
             
-            inner_visited.add(key)
-            if key not in outer_visited:
-                outer_visited.add(key)
+            visited.add(course)
 
-            if key in prereqs_hash:
-                for val in prereqs_hash[key]:
-                    if dfs(val, inner_visited.copy()):
-                        return True
-                    
-            return False 
-        
-        def cycle_found(key):
-            inner_visited = set()
-            return dfs(key, inner_visited)
+            for val in prereq_hash.get(course, []):
+                if not dfs(val):
+                    return False
+            
+            visited.remove(course)
+            prereq_hash[course] = []
+            return True
 
-        for key in prereqs_hash:
-            if cycle_found(key):
-                print('here')
+        for course in prereq_hash:
+            if not dfs(course): 
                 return False
 
-        return len(outer_visited) <= numCourses
+        return True
